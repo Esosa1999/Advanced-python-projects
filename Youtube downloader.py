@@ -15,7 +15,7 @@ def download_video(url,save_path):
         print(e)  
 
 
-# This is the function to choose the folder where the youtube video will be stored.
+# This is the function to choose the folder where the youtube video will be stored. 
 def open_file_dialog():
     folder= filedialog.askdirectory()
     if folder:
