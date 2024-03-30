@@ -22,6 +22,14 @@ def copy_folder_to_directory(source,dest):
     except FileExistsError:
         print(f'folder already exists in: {dest}')
 
-copy_folder_to_directory(source_dir,destination_dir)
+# this code schedules backup to occur every day.
+schedule.every().day.at('15:49').do(lambda:copy_folder_to_directory(source_dir,destination_dir))
+
+# schedule.run_pending() checks the code above to see if there is a pending schedules to run.
+# Time.sleep(60) is simply checking every 60 seconds if there is a pending schedule.
+while True:
+    schedule.run_pending()
+    time.sleep(60)
+
 
     
